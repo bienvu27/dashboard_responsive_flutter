@@ -9,3 +9,7 @@ const meunu_profile = "assets/icons/menu_profile.svg";
 const meunu_setting = "assets/icons/menu_setting.svg";
 const icon_search = "assets/icons/Search.svg";
 const profile_pic = "assets/images/profile_pic.png";
+const documents = "assets/icons/Documents.svg";
+const media = "assets/icons/media.svg";
+const folder = "assets/icons/folder.svg";
+const unknown = "assets/icons/unknown.svg";
