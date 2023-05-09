@@ -1,7 +1,10 @@
+import 'package:dashborad_flutter_responsive/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
+import '../../../controller/controller.dart';
 import '../../../core/resources/assets.dart';
 
 class Header extends StatelessWidget {
@@ -13,11 +16,17 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        if(!Responsive.isDesktop(context))
+        IconButton(onPressed: (){
+          context.read<MenuAppController>().controlMenu();
+        }, icon: const Icon(Icons.menu)),
+        if(!Responsive.isMobile(context))
         Text(
           'DashBoard',
           style: Theme.of(context).textTheme.headline6,
         ),
-        const Spacer(flex: 2,),
+        if(!Responsive.isMobile(context))
+        Spacer(flex: Responsive.isDesktop(context) ? 2 : 1,),
         const Expanded(child: SearchField()),
         const ProfileCard()
       ],
@@ -49,6 +58,7 @@ class ProfileCard extends StatelessWidget {
             profile_pic,
             height: 38,
           ),
+          if(!Responsive.isMobile(context))
           const Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: defaultPadding / 2),
